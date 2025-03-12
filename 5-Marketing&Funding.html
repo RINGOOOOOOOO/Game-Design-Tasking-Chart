@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketing & Funding</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="icon" href="./assets/hero.png" type="image/png" />
+  </head>
+  <body>
+    <nav class="navigation">
+      <div class="nav-title">Step5 Marketing & Funding</div>
+      <a href="index.html#steps" class="nav-back">Back</a>
+    </nav>
+    <div class="container">
+      <div class="map">
+        <div class="s-1">
+          <p>01</p>
+          <p>Creating the promotional trailer</p>
+        </div>
+        <div class="s-2">
+          <p>02</p>
+          <p>Writing Marketing Copy & Game Descriptions</p>
+        </div>
+        <div class="s-3">
+          <p>03</p>
+          <p>Setting Up Store Pages</p>
+        </div>
+        <div class="s-4">
+          <p>04</p>
+          <p>Managing Social Media Accounts</p>
+        </div>
+      </div>
+      <div class="sections">
+        <div class="section-1 sec">
+          <div class="header">
+            <p>01</p>
+            <p>Creating the promotional trailer</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Requires cinematic storytelling, editing skills, and marketing
+              strategy.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>Yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              AI can assist with video editing, automate transitions, and
+              generate dynamic trailers based on in-game footage.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Augment</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>
+              <a href="https://easywithai.com/ai-video-tools/runwayml/"
+                >Runway ML</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="section-2 sec">
+          <div class="header">
+            <p>02</p>
+            <p>Writing Marketing Copy & Game Descriptions</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Needs to be engaging, informative, and tailored to the target
+              audience.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>Yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>AI can generate drafts.</p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Augment</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p><a href="https://openai.com/index/chatgpt/">ChatGPT</a></p>
+          </div>
+        </div>
+        <div class="section-3 sec">
+          <div class="header">
+            <p>03</p>
+            <p>Setting Up Store Pages (Website, Steam, etc.)</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Requires technical setup, branding consistency, and engaging
+              presentation.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>Mostly yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              AI can streamline store page creation, ensuring consistency in
+              layout, metadata optimization, and automated translations, making
+              it an efficient tool for this task.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Augment</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p><a href="https://openai.com/index/chatgpt/">ChatGPT</a></p>
+          </div>
+        </div>
+        <div class="section-4 sec">
+          <div class="header">
+            <p>04</p>
+            <p>Managing Social Media Accounts</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Requires consistent updates, engagement strategies, and community
+              interaction.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>No</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Requires direct labor to manage social media and interact with
+              players
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>N/A</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>N/A</p>
+          </div>
+        </div>
+
+        <!-- </div> -->
+        <div class="whitespace"></div>
+      </div>
+    </div>
+
+    <script>
+      const mapDivs = document.querySelectorAll(".map > div");
+      const sectionDivs = document.querySelectorAll(".sections > .sec");
+      const sectionHeights = [];
+      const accumulatedHeights = [];
+      const RATIO = 0.5;
+
+      let accumulatedHeight = 0;
+      sectionDivs.forEach((section) => {
+        const height = section.clientHeight;
+        sectionHeights.push(height * RATIO);
+        accumulatedHeight += height;
+        accumulatedHeights.push(accumulatedHeight);
+      });
+
+      let lastActiveIndex = -1;
+
+      function updateMapHeights(scrollPos) {
+        for (let i = 0; i < accumulatedHeights.length; i++) {
+          if (i === 0 && scrollPos < accumulatedHeights[i]) {
+            if (lastActiveIndex !== i) {
+              if (lastActiveIndex >= 0) {
+                mapDivs[lastActiveIndex].style.height = "100px";
+              }
+              mapDivs[i].style.height = `${sectionHeights[i]}px`;
+              lastActiveIndex = i;
+            }
+
+            break;
+          } else if (
+            i > 0 &&
+            scrollPos >= accumulatedHeights[i - 1] &&
+            scrollPos < accumulatedHeights[i]
+          ) {
+            if (lastActiveIndex !== i) {
+              if (lastActiveIndex >= 0) {
+                mapDivs[lastActiveIndex].style.height = "100px";
+              }
+              mapDivs[i].style.height = `${sectionHeights[i]}px`;
+              lastActiveIndex = i;
+            }
+            break;
+          }
+        }
+      }
+
+      const sectionsTotalHeight = [...sectionDivs].reduce(
+        (sum, section) => sum + section.clientHeight,
+        0
+      );
+      const mapTotalHeight =
+        [...mapDivs].reduce((sum, mapDiv) => sum + mapDiv.clientHeight, 0) +
+        (mapDivs.length - 1) * 75;
+
+      const sectionsScrollableHeight = sectionsTotalHeight - window.innerHeight;
+      const mapScrollableHeight = mapTotalHeight - window.innerHeight;
+
+      const scrollRatio = mapScrollableHeight / sectionsScrollableHeight;
+
+      window.addEventListener("scroll", () => {
+        const scrollPos = window.scrollY;
+
+        const mapTranslateY = scrollPos * scrollRatio;
+        document.querySelector(
+          ".map"
+        ).style.transform = `translateY(-${mapTranslateY}px)`;
+
+        updateMapHeights(scrollPos);
+        updateMapHeights(scrollPos);
+      });
+    </script>
+  </body>
+</html>

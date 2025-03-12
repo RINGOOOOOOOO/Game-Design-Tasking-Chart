@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Design Tasking Chart</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./assets/hero.png" type="image/png" />
   </head>
   <body>
     <div class="container">
-      <!-- <nav> -->
-      <!-- <p id="logo"></p> -->
-      <!-- <button></button> -->
-      <!-- </nav> -->
       <section class="intro">
         <div class="dialogue-container">
           <div class="dialogue-options">
@@ -45,7 +42,7 @@
         </div>
       </section>
 
-      <section class="steps">
+      <section id="steps" class="steps">
         <div class="step-counter">
           <div class="counter-title">
             <h1 style="font-size: 100px">steps</h1>
@@ -64,77 +61,91 @@
         </div>
 
         <div class="cards">
-          <div class="card">
-            <div class="text-area">1. Project Initiation</div>
-            <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
-            <div class="card-content">
-              <!-- <p>
+          <a href="1-ProjectInitiation.html">
+            <div class="card">
+              <div class="text-area">1. Project Initiation</div>
+              <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
+              <div class="card-content">
+                <!-- <p>
                 Effortlessly import your 3D models and assets into our intuitive
                 design tool, ensuring that projects are set up quickly.
               </p> -->
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="text-area">2. Paper Prototype</div>
-            <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
-            <div class="card-content">
-              <!-- <p>
+          </a>
+          <a href="2-PaperPrototype.html">
+            <div class="card">
+              <div class="text-area">2. Paper Prototype</div>
+              <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
+              <div class="card-content">
+                <!-- <p>
                 Take full control of your designs with our advanced
                 customization tools. Adjust lighting and geometry with
                 precision.
               </p> -->
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="text-area">3. Digital Prototype</div>
-            <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
-            <div class="card-content">
-              <!-- <p>
+          </a>
+          <a href="3-DigitalPrototype.html">
+            <div class="card">
+              <div class="text-area">3. Digital Prototype</div>
+              <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
+              <div class="card-content">
+                <!-- <p>
                 Bring your designs to life with our seamless animation presets
                 and tools, allowing you to create dynamic interactions.
               </p> -->
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="text-area">4. Visual Design</div>
-            <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
-            <div class="card-content">
-              <!-- <p>
+          </a>
+          <a href="4-VisualDesign.html">
+            <div class="card">
+              <div class="text-area">4. Visual Design</div>
+              <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
+              <div class="card-content">
+                <!-- <p>
                 Collaborate in real time with your team, sharing ideas and
                 updates instantly to streamline the creative process.
               </p> -->
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="text-area">5. Marketing & Funding</div>
-            <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
-            <div class="card-content">
-              <!-- <p>
+          </a>
+          <a href="5-Marketing&Funding.html">
+            <div class="card">
+              <div class="text-area">5. Marketing & Funding</div>
+              <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
+              <div class="card-content">
+                <!-- <p>
                 When your design is complete, export it in various formats
                 optimized for production or further editing. .
               </p> -->
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="text-area">6. Game Development</div>
-            <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
-            <div class="card-content">
-              <!-- <p>
+          </a>
+          <a href="6-GameDevelopment.html">
+            <div class="card">
+              <div class="text-area">6. Game Development</div>
+              <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
+              <div class="card-content">
+                <!-- <p>
                 When your design is complete, export it in various formats
                 optimized for production or further editing. .
               </p> -->
+              </div>
             </div>
-          </div>
-          <div class="card">
-            <div class="text-area">7. Game Release</div>
-            <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
-            <div class="card-content">
-              <!-- <p>
+          </a>
+          <a href="7-GameRelease.html">
+            <div class="card">
+              <div class="text-area">7. Game Release</div>
+              <!-- <div class="card-img"><img src="./assets/note.png" alt="" /></div> -->
+              <div class="card-content">
+                <!-- <p>
                 When your design is complete, export it in various formats
                 optimized for production or further editing. .
               </p> -->
+              </div>
             </div>
-          </div>
+          </a>
           <div class="card empty"><p>EMPTY</p></div>
           <div class="card empty"><p>EMPTY</p></div>
         </div>
@@ -151,6 +162,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="./java/script.js"></script>
   </body>
 </html>

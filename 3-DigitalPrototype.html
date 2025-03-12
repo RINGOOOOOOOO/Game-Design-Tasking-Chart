@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Prototype</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="icon" href="./assets/hero.png" type="image/png" />
+  </head>
+  <body>
+    <nav class="navigation">
+      <div class="nav-title">Step3 Digital Prototype</div>
+      <a href="index.html#steps" class="nav-back">Back</a>
+    </nav>
+    <div class="container">
+      <div class="map">
+        <div class="s-1">
+          <p>01</p>
+          <p>Engines Choosing</p>
+        </div>
+        <div class="s-2">
+          <p>02</p>
+          <p>Create Core Mechanics</p>
+        </div>
+        <div class="s-3">
+          <p>03</p>
+          <p>Adjusting Timelines & Estimations</p>
+        </div>
+      </div>
+      <div class="sections">
+        <div class="section-1 sec">
+          <div class="header">
+            <p>01</p>
+            <p>Choosing the game engines</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Needs technical knowledge, project-specific considerations, and
+              long-term planning.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>No</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              The decision depends on factors like team expertise, workflow
+              preferences, and scalability.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>N/A</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>N/A</p>
+          </div>
+        </div>
+        <div class="section-2 sec">
+          <div class="header">
+            <p>02</p>
+            <p>Create Core Mechanics</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Demands deep understanding of game feel, player behavior, and
+              iterative design.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>Mostly yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              AI can assist with coding specific mechanics, debugging, and
+              generating prototype scripts, but fine-tuning player interactions
+              requires human intuition and countless playtests.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Augment</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>
+              <a href="https://github.com/features/copilot">GitHub Copilot</a>,
+              <a href="https://claude.ai/new">Claude</a>
+            </p>
+          </div>
+        </div>
+        <div class="section-3 sec">
+          <div class="header">
+            <p>03</p>
+            <p>Adjusting Timelines & Estimations</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Involves balancing creativity, technical constraints, and team
+              capacity.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>No</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Scheduling game development is a highly analytical task, requiring
+              data on development cycles, past projects, and resource
+              allocation.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>N/A</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>N/A</p>
+          </div>
+        </div>
+
+        <!-- </div> -->
+        <div class="whitespace"></div>
+      </div>
+    </div>
+
+    <script>
+      const mapDivs = document.querySelectorAll(".map > div");
+      const sectionDivs = document.querySelectorAll(".sections > .sec");
+      const sectionHeights = [];
+      const accumulatedHeights = [];
+      const RATIO = 0.5;
+
+      let accumulatedHeight = 0;
+      sectionDivs.forEach((section) => {
+        const height = section.clientHeight;
+        sectionHeights.push(height * RATIO);
+        accumulatedHeight += height;
+        accumulatedHeights.push(accumulatedHeight);
+      });
+
+      let lastActiveIndex = -1;
+
+      function updateMapHeights(scrollPos) {
+        for (let i = 0; i < accumulatedHeights.length; i++) {
+          if (i === 0 && scrollPos < accumulatedHeights[i]) {
+            if (lastActiveIndex !== i) {
+              if (lastActiveIndex >= 0) {
+                mapDivs[lastActiveIndex].style.height = "100px";
+              }
+              mapDivs[i].style.height = `${sectionHeights[i]}px`;
+              lastActiveIndex = i;
+            }
+
+            break;
+          } else if (
+            i > 0 &&
+            scrollPos >= accumulatedHeights[i - 1] &&
+            scrollPos < accumulatedHeights[i]
+          ) {
+            if (lastActiveIndex !== i) {
+              if (lastActiveIndex >= 0) {
+                mapDivs[lastActiveIndex].style.height = "100px";
+              }
+              mapDivs[i].style.height = `${sectionHeights[i]}px`;
+              lastActiveIndex = i;
+            }
+            break;
+          }
+        }
+      }
+
+      const sectionsTotalHeight = [...sectionDivs].reduce(
+        (sum, section) => sum + section.clientHeight,
+        0
+      );
+      const mapTotalHeight =
+        [...mapDivs].reduce((sum, mapDiv) => sum + mapDiv.clientHeight, 0) +
+        (mapDivs.length - 1) * 75;
+
+      const sectionsScrollableHeight = sectionsTotalHeight - window.innerHeight;
+      const mapScrollableHeight = mapTotalHeight - window.innerHeight;
+
+      const scrollRatio = mapScrollableHeight / sectionsScrollableHeight;
+
+      window.addEventListener("scroll", () => {
+        const scrollPos = window.scrollY;
+
+        const mapTranslateY = scrollPos * scrollRatio;
+        document.querySelector(
+          ".map"
+        ).style.transform = `translateY(-${mapTranslateY}px)`;
+
+        updateMapHeights(scrollPos);
+        updateMapHeights(scrollPos);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Development</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="icon" href="./assets/hero.png" type="image/png" />
+  </head>
+  <body>
+    <nav class="navigation">
+      <div class="nav-title">Step6 Game Development</div>
+      <a href="index.html#steps" class="nav-back">Back</a>
+    </nav>
+    <div class="container">
+      <div class="map">
+        <div class="s-1">
+          <p>01</p>
+          <p>Programming & Development</p>
+        </div>
+        <div class="s-2">
+          <p>02</p>
+          <p>3D Modeling</p>
+        </div>
+        <div class="s-3">
+          <p>03</p>
+          <p>Preparing Demo for Review</p>
+        </div>
+        <div class="s-4">
+          <p>04</p>
+          <p>Registering & Preparing</p>
+        </div>
+        <div class="s-5">
+          <p>05</p>
+          <p>Updating</p>
+        </div>
+      </div>
+      <div class="sections">
+        <div class="section-1 sec">
+          <div class="header">
+            <p>01</p>
+            <p>Programming & Development</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>Requires technical skill</p>
+            <h1>• Suitable for AI?</h1>
+            <p>Mostly yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              AI can assist by generating code snippets, debugging, and
+              optimizing performance, but structuring the overall game
+              architecture and ensuring smooth player experience require human
+              expertise and creative problem-solving.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Augment</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>
+              <a href="https://openai.com/index/chatgpt/">ChatGPT</a>,
+              <a href="https://claude.ai/new">Claude</a>
+            </p>
+          </div>
+        </div>
+        <div class="section-2 sec">
+          <div class="header">
+            <p>02</p>
+            <p>3D Modeling</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>
+              Balances artistic vision, optimization, and technical constraints.
+            </p>
+            <h1>• Suitable for AI?</h1>
+            <p>Mostly yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              AI can generate 3D assets and textures, speeding up the workflow.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Augment</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <!-- <p>ChatGPT</p> -->
+          </div>
+        </div>
+        <div class="section-3 sec">
+          <div class="header">
+            <p>03</p>
+            <p>Preparing Demo for Review</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>Debugging, and presentation polish</p>
+            <h1>• Suitable for AI?</h1>
+            <p>No</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              The final assessment of player experience and quality control must
+              be done by humans
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>N/A</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>N/A</p>
+          </div>
+        </div>
+        <div class="section-4 sec">
+          <div class="header">
+            <p>04</p>
+            <p>Registering for Conferences & Preparing Surveys</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>Involves administrative work and player engagement.</p>
+            <h1>• Suitable for AI?</h1>
+            <p>Mostly yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              AI can handle event registrations, survey distribution, and data
+              analysis to gather insights from players efficiently.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Augment</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <!-- <p>ChatGPT</p> -->
+          </div>
+        </div>
+        <div class="section-5 sec">
+          <div class="header">
+            <p>05</p>
+            <p>Updating Game Design Documents, Store Pages, & Social Media</p>
+          </div>
+          <div class="copy">
+            <h1>• Characteristic of the task</h1>
+            <p>Requires documentation, organization, and consistency.</p>
+            <h1>• Suitable for AI?</h1>
+            <p>Yes</p>
+            <h1>• Characteristic of the task</h1>
+            <p>
+              AI can automate documentation updates, ensure consistency across
+              platforms, and assist in scheduling content updates for store
+              pages and social media.
+            </p>
+            <h1>• Type of Action (Automate, Augment, Both, or N/A)</h1>
+            <p>Automate</p>
+            <h1>• CREATIVE AI TOOLS</h1>
+            <p>
+              <a href="https://www.notion.com/help/guides/category/ai"
+                >Notion AI</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- </div> -->
+        <div class="whitespace"></div>
+      </div>
+    </div>
+
+    <script>
+      const mapDivs = document.querySelectorAll(".map > div");
+      const sectionDivs = document.querySelectorAll(".sections > .sec");
+      const sectionHeights = [];
+      const accumulatedHeights = [];
+      const RATIO = 0.5;
+
+      let accumulatedHeight = 0;
+      sectionDivs.forEach((section) => {
+        const height = section.clientHeight;
+        sectionHeights.push(height * RATIO);
+        accumulatedHeight += height;
+        accumulatedHeights.push(accumulatedHeight);
+      });
+
+      let lastActiveIndex = -1;
+
+      function updateMapHeights(scrollPos) {
+        for (let i = 0; i < accumulatedHeights.length; i++) {
+          if (i === 0 && scrollPos < accumulatedHeights[i]) {
+            if (lastActiveIndex !== i) {
+              if (lastActiveIndex >= 0) {
+                mapDivs[lastActiveIndex].style.height = "100px";
+              }
+              mapDivs[i].style.height = `${sectionHeights[i]}px`;
+              lastActiveIndex = i;
+            }
+
+            break;
+          } else if (
+            i > 0 &&
+            scrollPos >= accumulatedHeights[i - 1] &&
+            scrollPos < accumulatedHeights[i]
+          ) {
+            if (lastActiveIndex !== i) {
+              if (lastActiveIndex >= 0) {
+                mapDivs[lastActiveIndex].style.height = "100px";
+              }
+              mapDivs[i].style.height = `${sectionHeights[i]}px`;
+              lastActiveIndex = i;
+            }
+            break;
+          }
+        }
+      }
+
+      const sectionsTotalHeight = [...sectionDivs].reduce(
+        (sum, section) => sum + section.clientHeight,
+        0
+      );
+      const mapTotalHeight =
+        [...mapDivs].reduce((sum, mapDiv) => sum + mapDiv.clientHeight, 0) +
+        (mapDivs.length - 1) * 75;
+
+      const sectionsScrollableHeight = sectionsTotalHeight - window.innerHeight;
+      const mapScrollableHeight = mapTotalHeight - window.innerHeight;
+
+      const scrollRatio = mapScrollableHeight / sectionsScrollableHeight;
+
+      window.addEventListener("scroll", () => {
+        const scrollPos = window.scrollY;
+
+        const mapTranslateY = scrollPos * scrollRatio;
+        document.querySelector(
+          ".map"
+        ).style.transform = `translateY(-${mapTranslateY}px)`;
+
+        updateMapHeights(scrollPos);
+        updateMapHeights(scrollPos);
+      });
+    </script>
+  </body>
+</html>
